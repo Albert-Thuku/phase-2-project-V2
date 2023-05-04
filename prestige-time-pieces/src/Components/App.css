@@ -1,0 +1,99 @@
+.welcome-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #F5F5F5;
+  text-align: center;
+}
+.welcome-page h1 {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+}
+.welcome-page p {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.welcome-page ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+.welcome-page li {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.welcome-page button {
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  border: none;
+  background-color: #0077BE;
+  color: white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+.welcome-page button:hover {
+  background-color: #005EA2;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+  border: 2px solid #333;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.nav-link.active {
+  background-color: darkblue;
+  color: white;
+}
+
+.navbar {
+  background-color: #eee;
+  padding: 10px;
+}
+
+.watch-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.watch-image img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  display: block;
+}
+.watch-description {
+  flex: 1;
+  margin-left: 20px;
+}
+.watch-description h3 {
+  margin-top: 0;
+}
+.watch-description p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.watch-description button {
+  display: block;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
