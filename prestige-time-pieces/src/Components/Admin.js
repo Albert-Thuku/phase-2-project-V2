@@ -2,15 +2,31 @@ import React, { useEffect, useState } from "react";
 
 function Admin(){
     const [watchData, setWatchData] = useState([]);
+    const [optionWatch, setSelectedWatch] = useState([]);
 
     useEffect(() => {
         fetch("http://localhost:3000/watches")
           .then((resp) => resp.json())
-          .then((data) => setWatchData(data))
+          .then((data) => {
+            setWatchData(data)
+            setSelectedWatch(data[0])
+          })
           .catch((err) => console.error(err));
       }, []);
 
-      const [formData, setFormData] = useState({
+      const options = watchData.map((watch) => {
+        return (<option value={watch.id} key={watch.id}>
+          {watch.name}
+        </option>);
+      });
+      function handleWatchSelect(e) {
+        const watchId = e.target.value;
+        const selectedWatch = watchData.find((watch) => watch.id === watchId);
+        setSelectedWatch(selectedWatch);
+    }
+
+
+      const [formData, setFormData] = useState([{
         name: "",
         image: "",
         description: "",
@@ -18,9 +34,9 @@ function Admin(){
         manufacturer: "",
         quantity: 0,
         rating: '',
-      });
+      }]);
       function handleInputChange(e){
-        setFormData({...formData, [e.target.name]:e.target.value})
+        setFormData([{...formData, [e.target.name]:e.target.value}])
       }
       function handleSubmit(e){
         e.preventDefault();
@@ -34,7 +50,7 @@ function Admin(){
       .then((response) => response.json())
       .then((data) => {
         setWatchData([...watchData, data]);
-        setFormData({
+        setFormData([{
           name: "",
           image: "",
           description: "",
@@ -42,16 +58,45 @@ function Admin(){
           manufacturer: "",
           quantity: 0,
           rating: 0,
-        });
+        }]);
       })
       .catch((error) => console.error(error));
       }
 
+      function handleEditChange(e) {
+        const { name, value } = e.target;
+        setSelectedWatch((prevWatch) => ({ ...prevWatch, [name]: value }));
+      }
+      function handleEditProduct(e) {
+        e.preventDefault();
+        fetch(`http://localhost:3000/watches/${optionWatch.id}`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(optionWatch),
+        })
+          .then((resp) => resp.json())
+          .then((updatedWatch) => {
+            const updatedWatchData = watchData.map((watch) =>
+              watch.id === updatedWatch.id ? updatedWatch : watch
+            );
+            setWatchData(updatedWatchData);
+            setSelectedWatch(updatedWatch);
+          })
+          .catch((err) => console.error(err));
+      }
+      
+      function handleDelete(e){
+        e.preventDefault()
+        fetch(`http://localhost:3000/watches/${optionWatch.id}`, {method: "DELETE"})
+        .then(resp=>resp.json()).then(alert(`${optionWatch.name} has been deleted`))
+        .catch(err=>alert(err))
+      } 
+
       return(
-        <div id="addProductForm-div">
+        <section id="forms-section">
+        <div id="addWatchForm-div">
             <form onSubmit={handleSubmit}>
-                <h3>Add Product Form</h3>
-                <br />
+                <h3>Add Watch Form</h3>
                 <label htmlFor="watchName">Watch Name</label>
                 <input
                     type="text"
@@ -111,6 +156,82 @@ function Admin(){
                 <button type="submit">Add Product</button>
             </form>
         </div>
+        <div id="editWatchForm-div">
+          <form id="edit-watch-form" onSubmit={handleEditProduct}>
+            <h3>Edit watch form</h3>
+            <select
+              name="selectedWatchName"
+              value={optionWatch.id}
+              onChange={handleWatchSelect}
+            >
+            <option value="" disabled>
+            Select a watch to edit
+            </option>
+            {options}
+            </select>
+            <label htmlFor="watchImage">Watch image</label>
+            <input 
+              type="text"
+              name="watchImage"
+              value={optionWatch.image}
+              onChange={handleEditChange}
+              />
+              <label htmlFor="watchDescription">Watch description</label>
+              <input 
+                type="text"
+                name="watchDescription"
+                value={optionWatch.description}
+                onChange={handleEditChange}
+              />
+              <label htmlFor="watchPrice">Watch price</label>
+              <input 
+              type="number"
+              name="watchPrice"
+              value={optionWatch.price}
+              onChange={handleEditChange}
+              />
+              <label htmlFor="watchManufacturer">Watch manufacturer</label>
+              <input
+                type="text"
+                name="watchManufacturer"
+                value={optionWatch.manufacturer}
+                onChange={handleEditChange}
+              />
+              <label htmlFor="watchQuantity">Watch quantity</label>
+              <input 
+                type="number"
+                name="watchQuantity"
+                value={optionWatch.quantity}
+                onChange={handleEditChange}
+              />
+              <label htmlFor="watchRating">Watch rating</label>
+              <input 
+                type="text"
+                name="watchRating"
+                value={optionWatch.rating}
+                onChange={handleEditChange}
+              />
+              <button type="submit">Confirm edit</button>
+          </form>
+        </div>
+        <div id="deleteWatchForm-div">
+            <form onSubmit={handleDelete}>
+              <h3>Delete watch form</h3>
+              <select
+                name="selectedWatchName"
+                value={optionWatch.id}
+                onChange={handleWatchSelect}
+              >
+              <option value="" disabled>
+              Select a watch to delete
+              </option>
+              {options}
+              </select>
+              <button type="submit">Delete watch</button>
+            </form>
+        </div>
+        </section>
+        
       );
 }
 

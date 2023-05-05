@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import WatchItem from "./WatchItem";
 import Manufacturers from "./Manufacturers";
 
-function WatchList() {
+function WatchList({addToCart}) {
   const [watchData, setWatchData] = useState([]);
   const [selectedManufacturer, setSelectedManufacturer] = useState(null);
 
@@ -21,6 +21,10 @@ function WatchList() {
       .catch((err) => console.error(err));
   }, []);
 
+  function cartFn(watch){
+    addToCart(watch)
+  }
+
   return (
     <section id="shoppingSection">
       <header>
@@ -32,7 +36,7 @@ function WatchList() {
       </div>
       <div id="WatchList">
         {filteredWatches.map((watch) => {
-          return <WatchItem watch={watch} key={watch.id} />;
+          return <WatchItem watch={watch} key={watch.id} cf={cartFn}/>;
         })}
       </div>
       

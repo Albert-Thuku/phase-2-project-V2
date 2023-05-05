@@ -1,6 +1,10 @@
 import React from "react";
 
-function WatchItem({watch}){
+function WatchItem({watch, cf}){
+
+    function handleCart(watch){
+        cf(watch)
+    }
 
     return (
         <div key={watch.id} className="watch-container">
@@ -15,7 +19,7 @@ function WatchItem({watch}){
                     Quantity: {watch.quantity} <br />
                     Rating: {watch.rating} <br />
                 </p>
-                <button >Add to Cart</button>
+                <button onClick={()=>handleCart(watch)}>Add to Cart</button>
             </section>
         </div>
     );
