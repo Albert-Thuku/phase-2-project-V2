@@ -27,7 +27,7 @@ function WatchList({addToCart}) {
 
   return (
     <section id="shoppingSection">
-      <header>
+      <header id="shopHeader">
         <h2>Prestige Time Pieces</h2>
         <h4>Crafted to Perfection, Timelessly Elegant</h4>
       </header>
