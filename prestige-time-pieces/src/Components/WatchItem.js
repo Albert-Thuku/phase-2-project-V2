@@ -9,7 +9,7 @@ function WatchItem({watch, cf}){
     return (
         <div key={watch.id} className="watch-container">
             <section className="watch-image">
-                <img src={watch.image} alt="Luxury watch pic" />
+                <img src={watch.image} alt="Luxury watch pic" className="watch-image-img" />
             </section>
             <section className="watch-description">
                 <h3>{watch.name}</h3>
@@ -19,7 +19,7 @@ function WatchItem({watch, cf}){
                     Quantity: {watch.quantity} <br />
                     Rating: {watch.rating} <br />
                 </p>
-                <button onClick={()=>handleCart(watch)}>Add to Cart</button>
+                <button className="add-to-cart-btn" onClick={()=>handleCart(watch)}>Add to Cart</button>
             </section>
         </div>
     );
