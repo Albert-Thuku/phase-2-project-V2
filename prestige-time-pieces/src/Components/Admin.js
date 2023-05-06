@@ -226,7 +226,7 @@ function Admin(){
               Select a watch to delete
               </option>
               {options}
-              </select>
+             </select>
               <button type="submit">Delete watch</button>
             </form>
         </div>
@@ -235,4 +235,4 @@ function Admin(){
       );
 }
 
-export default Admin;
+export default Admin; 
