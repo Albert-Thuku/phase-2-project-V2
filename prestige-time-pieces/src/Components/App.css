@@ -1,177 +1,311 @@
-body {
-  background-color: white;
-}
-.header1 {
-  color: #E16B10;
-}
 .welcome-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: #F5F5F5;
+  background-color: #F5DEB3;
+  padding: 50px;
   text-align: center;
 }
-.welcome-page h1 {
-  font-size: 4rem;
-  margin-bottom: 2rem;
+
+.heading {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 30px;
 }
-.welcome-page p {
-  font-size: 2rem;
-  margin-bottom: 2rem;
+
+.paragraph {
+  font-size: 24px;
+  margin-bottom: 30px;
 }
-.welcome-page ul {
-  list-style: none;
+
+.list {
+  font-size: 18px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.list li {
+  margin-bottom: 10px;
+}
+
+.button {
+  background-color: #8B7355;
+  border: none;
+  color: #FFFFFF;
+  font-size: 18px; 
+  font-weight: bold;
+  padding: 8px 16px; 
+  border-radius: 5px;
+  cursor: pointer;
+  width: 120px; 
+  transition: transform 0.2s ease-in-out; 
+}
+
+.button:hover {
+  transform: translateY(-5px); 
+  background-color: #A3785F;
+}
+
+
+body {
+  background-color: #F5DEB3;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
   margin: 0;
   padding: 0;
-  margin-bottom: 2rem;
 }
-.welcome-page li {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+
+#forms-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 40px auto;
+  max-width: 900px;
 }
-.welcome-page button {
-  font-size: 2rem;
-  padding: 1rem 2rem;
+
+form {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  padding: 40px;
+  width: 40%;
+}
+
+input,
+select,
+button {
   border: none;
-  background-color: #773706;
-  color: white;
-  border-radius: 0.5rem;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  margin: 8px 0;
+  padding: 16px;
+  width: 100%;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+}
+
+button {
+  background-color: #B8860B;
+  color: #fff;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
 }
-.welcome-page button:hover {
-  background-color: #E16B10;
+
+button:hover {
+  background-color: #8B6508;
 }
-.nav-link {
-  display: inline-block;
-  padding: 10px 20px;
-  color: #333;
-  text-decoration: none;
-  border: 2px solid #333;
-  border-radius: 5px;
-  margin-right: 10px;
-  font-size: 16px;
+
+label {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-transform: uppercase;
 }
-.nav-link.active {
-  background-color: #B85103;
-  color: white;
-}
-.navbar {
-  background-color: #773706;
-  padding: 10px;
+
+option {
+  padding: 8px;
 }
 .watch-container {
-  display: flex;
-  border: 1px solid #ddd;
-  margin-bottom: 20px;
-  flex-direction: row;
-  padding: 2%;
-  row-gap: 5%;
-  padding-left: 10%;
-  /* background-color: #773706; */
-}
-.watch-image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  /* align-items: center; */
-  border-right: 1px solid #ddd;
-  padding: 10px;
-}
-.watch-image img {
-  max-width: 100%;
-  max-height: 100%;
-}
-.watch-description {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 10px;
-}
-.watch-description h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-.watch-description p {
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-.watch-description button {
-  display: block;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  align-self: flex-end;
-}
-#shoppingSection {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-}
-#shoppingSection header h2 {
-  font-size: 36px;
-  margin-bottom: 10px;
-}
-#shoppingSection header h4 {
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-#Manufacturers {
-  margin-bottom: 20px;
-  box-sizing: 20px;
-}
-.ManufacturerDiv, button {
-font-size: 30px;
-font-weight: 10px;
-background-color: #773706;
-padding: 5px;
-margin: 6px;
-margin-top: 5px;
-box-shadow: #ddd 5px 5px 4px;
-}
-#addWatchForm-div {
-  background-color: #773706;
-  border-radius: 10px;
-  padding: 20px;
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-}
-#addWatchForm-div h3 {
-  margin-bottom: 20px;
-}
-#addWatchForm-div label {
-  display: block;
-  margin-bottom: 5px;
-  text-align: left;
-  font-weight: bold;
-}
-#addWatchForm-div input {
-  display: block;
   width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  border: none;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-#addWatchForm-div button {
-  display: inline-block;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
+  max-width: 500px; 
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+  padding: 20px;
+  margin: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s; 
+  }
+  
+  .watch-container:hover {
+  background-color: #a59e9e; 
+  }
+
+  .watch-image-img:hover{
+  background-color: #a59e9e; 
+  }
+  
+  .watch-image {
+  width: 50%; 
+  height: 200px;
+  overflow: hidden;
+  margin-right: 20px; 
+  }
+  
+  .watch-image-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  }
+  
+  .watch-description {
+  text-align: left;
   font-size: 16px;
+  color: #5C5346;
+  width: 50%; 
+  }
+  
+  .add-to-cart-btn {
+  background-color: #8B7355;
+  border: none;
+  color: #FFFFFF;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
   cursor: pointer;
-  margin-top: 20px;
-}
+  transition: transform 0.2s;
+  }
+  
+  .add-to-cart-btn:hover {
+  transform: translateY(-3px);
+  }
+  
+  #WatchList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1300px;
+  margin: 10px auto;
+  }
+
+  #shopHeader {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .ManufacturerDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .ManufacturerDiv button {
+    margin: 10px;
+    background-color: #f2f2f2;
+    border: none;
+    color: #333;
+    padding: 8px 16px; 
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .ManufacturerDiv button:hover {
+    background-color: #ddd;
+  }
+  
+  .ManufacturerDiv button.active {
+    background-color: #8B7355;
+    color: #fff;
+  }
+  
+  
+  .ManufacturerDiv button.active {
+    background-color: #8B7355;
+    color: #fff;
+  }
+  
+  body {
+    background-color: #f5deb3;
+  }
+  
+  #cart-div {
+    margin: 50px auto;
+    width: 80%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  #cart-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .cart-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 5000px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .cart-image {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .cart-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .cart-details {
+    width: 100%;
+  }
+  
+  .cart-details h4 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .cart-details p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  button {
+    background-color: #f2f2f2;
+    border: none;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  button:hover {
+    background-color: #ddd;
+  }
+  
+  #subtotals-div {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  #subtotals-div h3 {
+    font-size: 24px;
+  }
+  
+  #cart-list #cartHeader{
+    text-align: center;
+  }
+  
+  .nav-link {
+    margin-right: 10px; 
+    font-size: 18px;
+    color: #555; 
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .nav-link:hover {
+    color: #333; 
+  }
+  
+  
