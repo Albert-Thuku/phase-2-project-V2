@@ -11,7 +11,6 @@ function Manufacturers({watchData, onManufacturerSelect}){
         }
     })
 
-    /* Add set function from parent component to pass data back up  */
     function manufacturerSelect(manufacturer){
         if(manufacturer){
             setSelectedManufacturer(manufacturer)

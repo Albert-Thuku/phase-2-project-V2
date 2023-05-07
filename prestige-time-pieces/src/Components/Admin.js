@@ -40,7 +40,7 @@ function Admin(){
       }
       function handleSubmit(e){
         e.preventDefault();
-        fetch("http://localhost:3000/watches", {
+        fetch("https://prestige-time-pieces.onrender.com/watches", {
             method: "POST",
             headers: {
             "Content-Type": "application/json",
@@ -69,7 +69,7 @@ function Admin(){
       }
       function handleEditProduct(e) {
         e.preventDefault();
-        fetch(`http://localhost:3000/watches/${optionWatch.id}`, {
+        fetch(`https://prestige-time-pieces.onrender.com/watches/${optionWatch.id}`, {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(optionWatch),
@@ -87,7 +87,7 @@ function Admin(){
       
       function handleDelete(e){
         e.preventDefault()
-        fetch(`http://localhost:3000/watches/${optionWatch.id}`, {method: "DELETE"})
+        fetch(`https://prestige-time-pieces.onrender.com/watches/${optionWatch.id}`, {method: "DELETE"})
         .then(resp=>resp.json()).then(alert(`${optionWatch.name} has been deleted`))
         .catch(err=>alert(err))
       } 

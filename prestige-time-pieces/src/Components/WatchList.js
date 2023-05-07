@@ -15,7 +15,7 @@ function WatchList({addToCart}) {
     : watchData;
 
   useEffect(() => {
-    fetch("http://localhost:3000/watches")
+    fetch("https://prestige-time-pieces.onrender.com/watches")
       .then((resp) => resp.json())
       .then((data) => setWatchData(data))
       .catch((err) => console.error(err));
